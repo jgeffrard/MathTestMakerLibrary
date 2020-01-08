@@ -1,7 +1,7 @@
 import random
 
 def getCorrectAnswerIndex( numChoices ):
-    return random.randint( 1, numChoices + 1 )
+    return random.randint( 1, numChoices + 1 ) # Return a random integer N such that 1 <= N <= numChoices + 1.
 
 def generateWrongAnswers( numChoices, correctAnswer, dataType ):
     """
@@ -15,9 +15,11 @@ def generateWrongAnswers( numChoices, correctAnswer, dataType ):
     * etc.
     """
     if dataType == "ints":
-        return [ correctAnswer + 1 for i in range( numChoices ) ] # TBD put some good logic here.
+        return [ correctAnswer + 1 for i in range( numChoices ) ] # TBD put some good logic here. Returns a list
+    elif dataType == "tup":
+        return list(i + 1 for i in correctAnswer for j in range( numChoices ))    
     else:
-        assert( False ) # TBD decide how to handle this elegantly.
+        assert( False ) # TBD decide how to handle this elegantly.        
 
 def get_integer_in_range_excluding_specified(low=None,  high=None, exclude_list=None):
     """
